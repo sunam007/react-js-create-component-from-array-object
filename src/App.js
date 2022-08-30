@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
+  const couples = [
+    { name: "Jui", hubby: "Sunam" },
+    { name: "Purna", hubby: "Rony" },
+    { name: "Afia", hubby: "Cartoon" },
+    { name: "Sara", hubby: "Hasib" },
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {couples.map((couple) => (
+        <CoupleOfBU name={couple.name} hubby={couple.hubby}></CoupleOfBU>
+      ))}
+    </div>
+  );
+}
+
+function CoupleOfBU(props) {
+  console.log(props);
+  const person = {
+    border: "1px solid lightcoral",
+    borderRadius: " 10px",
+    backgroundColor: "lightblue",
+    margin: "10px",
+    padding: "10px",
+    color: "lightcoral",
+  };
+  return (
+    <div style={person}>
+      <h2>Name: {props.name}</h2>
+      <h2>Husband: {props.hubby}</h2>
     </div>
   );
 }
